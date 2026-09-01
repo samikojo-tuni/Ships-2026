@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cb74t5euos61n"]
+
+[ext_resource type="Shader" uid="uid://dx4twvubxah28" path="res://Shaders/Water.gdshader" id="1_q12u6"]
+[ext_resource type="Material" uid="uid://dphq8pe50k7d8" path="res://Art/Rocks/Rocks022_1K-PNG.tres" id="2_joc8x"]
+[ext_resource type="Texture2D" uid="uid://c2dkki4dqclrm" path="res://Art/Sky/Epic_BlueSunset_EquiRect_flat.png" id="3_joc8x"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3vykb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nhutf"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_3vykb")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_exm6m"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yfh6y"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_exm6m")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1igm"]
+render_priority = 0
+shader = ExtResource("1_q12u6")
+shader_parameter/primary_color = Color(0, 0.84705883, 0.92941177, 1)
+shader_parameter/roughness = 0.4
+shader_parameter/alpha = 0.7
+shader_parameter/normalmap_a = SubResource("NoiseTexture2D_nhutf")
+shader_parameter/normalmap_b = SubResource("NoiseTexture2D_yfh6y")
+shader_parameter/normalmap_a_strength = 0.3
+shader_parameter/normalmap_b_strength = 0.4
+shader_parameter/movement_direction = Vector2(0.1, 0.1)
+shader_parameter/movement_strength = 0.5
+shader_parameter/uv_scale = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1vj35"]
+material = SubResource("ShaderMaterial_k1igm")
+size = Vector2(100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lbokr"]
+material = ExtResource("2_joc8x")
+size = Vector2(100, 100)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_k1igm"]
+panorama = ExtResource("3_joc8x")
+
+[sub_resource type="Sky" id="Sky_1vj35"]
+sky_material = SubResource("PanoramaSkyMaterial_k1igm")
+
+[sub_resource type="Environment" id="Environment_lbokr"]
+background_mode = 2
+sky = SubResource("Sky_1vj35")
+
+[node name="Level" type="Node3D" unique_id=1271523175]
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=48245465]
+mesh = SubResource("PlaneMesh_1vj35")
+
+[node name="Bottom" type="MeshInstance3D" parent="Water" unique_id=2060591331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_lbokr")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1710482563]
+transform = Transform3D(-0.045941114, 0.9987228, -0.021028548, -0.8690383, -0.02957713, 0.49386, 0.49260733, 0.040962845, 0.869287, 0, 33.63716, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=238672306]
+environment = SubResource("Environment_lbokr")
