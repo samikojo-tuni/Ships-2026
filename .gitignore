@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.tmp/
+
+# Mac
+.DS_Store
+
+# C#
+.dotnet-home/
+.dotnet_cli_home/
+.nuget/
+
+# IDEs
+.vscode/
+.vs/
+.idea/
+
+# Miscellaneous
+Library/*
