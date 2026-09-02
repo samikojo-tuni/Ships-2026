@@ -26,7 +26,9 @@ project/assembly_name="Ships"
 [file_customization]
 
 folder_colors={
-"res://Art/": "red"
+"res://Art/": "red",
+"res://Code/": "orange",
+"res://Scenes/": "purple"
 }
 
 [physics]
