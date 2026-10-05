@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cb74t5euos61n"]
 
+[ext_resource type="Script" uid="uid://bdku0qvb2xu5n" path="res://Scenes/Level.cs" id="1_2h8qs"]
 [ext_resource type="Shader" uid="uid://dx4twvubxah28" path="res://Shaders/Water.gdshader" id="1_q12u6"]
 [ext_resource type="Material" uid="uid://dphq8pe50k7d8" path="res://Art/Rocks/Rocks022_1K-PNG.tres" id="2_joc8x"]
 [ext_resource type="Texture2D" uid="uid://c2dkki4dqclrm" path="res://Art/Sky/Epic_BlueSunset_EquiRect_flat.png" id="3_joc8x"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c6g22t7q8wmpx" path="res://Scenes/LevelObjects/Rock1.tscn" id="7_rpty4"]
 [ext_resource type="PackedScene" uid="uid://dal2ry4e6ijio" path="res://Scenes/LevelObjects/Rock2.tscn" id="8_6jj8j"]
 [ext_resource type="PackedScene" uid="uid://gb82qf7sjrcg" path="res://Scenes/LevelObjects/Rock3.tscn" id="9_06um6"]
+[ext_resource type="Script" uid="uid://dw0x1ywrm177y" path="res://Code/Pathfinding/NavigationGrid.cs" id="10_bdlbp"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3vykb"]
 
@@ -63,6 +65,7 @@ background_mode = 2
 sky = SubResource("Sky_1vj35")
 
 [node name="Level" type="Node3D" unique_id=1271523175]
+script = ExtResource("1_2h8qs")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=48245465]
 mesh = SubResource("PlaneMesh_1vj35")
@@ -439,3 +442,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.045135, 0, -48.560978)
 
 [node name="rocks-c10" parent="Bounds/Right" unique_id=112829224 instance=ExtResource("9_06um6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.04512, 0, -40.84346)
+
+[node name="NavigationGrid" type="Node3D" parent="." unique_id=1547683577]
+script = ExtResource("10_bdlbp")
+GridSize = Vector2i(100, 100)
+DrawDebugGrid = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1385627526]
+transform = Transform3D(1, 0, 0, 0, -0.11524884, 0.9933367, 0, -0.9933367, -0.11524884, 0, 11.518807, -47.70407)

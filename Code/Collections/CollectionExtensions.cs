@@ -22,5 +22,20 @@ namespace GA.Collections
 			list[indexA] = list[indexB];
 			list[indexB] = temp;
 		}
+
+		public static void Reverse<T>(this IList<T> list)
+		{
+			if (list == null)
+			{
+				throw new System.ArgumentNullException(nameof(list));
+			}
+
+			for (int i = 0; i < list.Count / 2; ++i)
+			{
+				int startIndex = i;
+				int endIndex = list.Count - 1 - i;
+				list.Swap(startIndex, endIndex);
+			}
+		}
 	}
 }
