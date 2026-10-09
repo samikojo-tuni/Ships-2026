@@ -127,7 +127,8 @@ namespace GA.Ships.Pathfinding
 				}
 			}
 
-			return cost;
+			// Walkable cells must cost at least 1 to keep the A* heuristic admissible.
+			return cost < 0 ? cost : Mathf.Max(cost, 1);
 		}
 
 		/// <summary>
@@ -181,6 +182,14 @@ namespace GA.Ships.Pathfinding
 					}
 
 					Cell neighbour = _cells[candidateX, candidateY];
+					bool isDiagonal = offsetX != 0 && offsetY != 0;
+					if (isDiagonal &&
+						(!_cells[cell.X + offsetX, cell.Y].IsWalkable || !_cells[cell.X, cell.Y + offsetY].IsWalkable))
+					{
+						// No corner cutting between blocked cells.
+						continue;
+					}
+
 					if (neighbour.IsWalkable)
 					{
 						neighbours.Add(neighbour);
