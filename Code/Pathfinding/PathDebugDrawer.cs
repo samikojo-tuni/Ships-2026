@@ -6,7 +6,7 @@ namespace GA.Ships.Navigation
 	public partial class PathDebugDrawer : Node3D
 	{
 		[Export] private Color _pathColor = new Color(1f, 0f, 0f);
-		[Export] private float _segmentWidth = 0.45f;
+		[Export] private float _segmentWidth = 0.1f;
 		[Export] private float _segmentHeight = 0.18f;
 
 		private MeshInstance3D _debugMeshInstance;
