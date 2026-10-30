@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PatrolPathAction" format=3 uid="uid://02wsjgko4cky"]
+
+[ext_resource type="Script" uid="uid://bb1qi5kel317j" path="res://Code/Ship/EnemyAI/Actions/PatrolPathAction.cs" id="1_xpd3d"]
+
+[resource]
+script = ExtResource("1_xpd3d")
+ArrivalDistance = 2.0
+metadata/_custom_type_script = "uid://bb1qi5kel317j"

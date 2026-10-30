@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bijs15liy45tx" path="res://Art/Models/GLB format/ship-pirate-small.glb" id="1_34l84"]
 [ext_resource type="Script" uid="uid://c0rxfmwdfuk4l" path="res://Code/Ship/EnemyShip.cs" id="2_elvtu"]
 [ext_resource type="Script" uid="uid://bbeubhgnw3on" path="res://Code/Ship/ShipVisual.cs" id="2_sypwe"]
+[ext_resource type="Resource" uid="uid://c8qrjp8py6obn" path="res://Data/PirateShipData.tres" id="3_fwmpb"]
 [ext_resource type="Script" uid="uid://bmmpjjonaog84" path="res://Code/Ship/EnemyBrain.cs" id="4_diwfk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_34l84"]
@@ -11,6 +12,7 @@ height = 7.6814575
 
 [node name="SmallPirateShip" unique_id=1141487921 instance=ExtResource("1_34l84")]
 script = ExtResource("2_elvtu")
+_shipData = ExtResource("3_fwmpb")
 
 [node name="ship-pirate-small" parent="." index="0" unique_id=1080368293]
 script = ExtResource("2_sypwe")

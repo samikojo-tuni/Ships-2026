@@ -2,8 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://vsdy5obma0i6" path="res://Data/EnemyAI/States/IDs/PatrolID.tres" id="1_5d0wq"]
 [ext_resource type="Script" uid="uid://c8wl0t4x2j4cd" path="res://Code/Ship/EnemyAI/AIState.cs" id="1_f13ka"]
+[ext_resource type="Resource" uid="uid://6bqb0lr4wxxd" path="res://Data/EnemyAI/Actions/FindClosestWaypointAction.tres" id="1_rfq0j"]
+[ext_resource type="Resource" uid="uid://02wsjgko4cky" path="res://Data/EnemyAI/Actions/PatrolPathAction.tres" id="3_7wjhw"]
 
 [resource]
 script = ExtResource("1_f13ka")
 ID = ExtResource("1_5d0wq")
+EnterActions = [ExtResource("1_rfq0j")]
+RunActions = [ExtResource("3_7wjhw")]
 metadata/_custom_type_script = "uid://c8wl0t4x2j4cd"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FindClosestWaypointAction" format=3 uid="uid://6bqb0lr4wxxd"]
+
+[ext_resource type="Script" uid="uid://eja6msytemy4" path="res://Code/Ship/EnemyAI/Actions/FindClosestWaypointAction.cs" id="1_qhqgt"]
+
+[resource]
+script = ExtResource("1_qhqgt")
+metadata/_custom_type_script = "uid://eja6msytemy4"
