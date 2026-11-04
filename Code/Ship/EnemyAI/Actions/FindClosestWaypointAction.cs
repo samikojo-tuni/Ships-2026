@@ -7,7 +7,7 @@ namespace GA.Ships
 	{
 		public override void Act(EnemyShip ship, float deltaTime = 0)
 		{
-			if (ship == null || ship.Brain == null || !ship.IsPathValid)
+			if (ship == null || ship.Brain == null || !ship.IsPatrolPathValid)
 			{
 				return;
 			}
