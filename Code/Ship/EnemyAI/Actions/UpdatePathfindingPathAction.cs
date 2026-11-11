@@ -25,7 +25,7 @@ namespace GA.Ships
 			bool isRefreshDue = _pathRefreshInterval >= 0
 				&& ship.PathfindingTimer >= _pathRefreshInterval;
 
-			if (ship.PathfindingPath.Count > 0 && !isRefreshDue)
+			if (ship.IsPathfindingPathValid && !isRefreshDue)
 			{
 				return;
 			}

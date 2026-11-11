@@ -19,12 +19,33 @@ namespace GA.Ships
 			if (_states != null)
 			{
 				_stateLookup = _states.BuildLookup();
-				// TODO: Activate initial state.
+				if (!ChangeState(_initialStateID))
+				{
+					GD.PushError("Can't activate initial state");
+				}
 			}
 			else
 			{
 				GD.PushError("EnemyBrain: State lookup table is null.");
 			}
+		}
+
+		public override void _Process(double delta)
+		{
+			CurrentState.UpdateState(_owner, GA.Ships.ProcessMode.Frame, (float)delta);
+			AIStateID targetStateID = CurrentState.TryTransitioning(_owner);
+			if (targetStateID != null)
+			{
+				if (!ChangeState(targetStateID))
+				{
+					GD.PushWarning($"Can't transition from {CurrentState.ID} to {targetStateID}");
+				}
+			}
+		}
+
+		public override void _PhysicsProcess(double delta)
+		{
+			CurrentState.UpdateState(_owner, GA.Ships.ProcessMode.PhysicsFrame, (float)delta);
 		}
 
 		public bool ChangeState(AIStateID targetStateID)

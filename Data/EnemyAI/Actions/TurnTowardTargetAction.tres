@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TurnTowardTargetAction" format=3 uid="uid://kg7205tietiw"]
+
+[ext_resource type="Script" uid="uid://di6ikd04xc2vc" path="res://Code/Ship/EnemyAI/Actions/TurnTowardTargetAction.cs" id="1_3wgg3"]
+
+[resource]
+script = ExtResource("1_3wgg3")
+metadata/_custom_type_script = "uid://di6ikd04xc2vc"

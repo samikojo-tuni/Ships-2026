@@ -3,15 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://bijs15liy45tx" path="res://Art/Models/GLB format/ship-pirate-small.glb" id="1_34l84"]
 [ext_resource type="Script" uid="uid://c0rxfmwdfuk4l" path="res://Code/Ship/EnemyShip.cs" id="2_elvtu"]
 [ext_resource type="Script" uid="uid://bbeubhgnw3on" path="res://Code/Ship/ShipVisual.cs" id="2_sypwe"]
+[ext_resource type="Resource" uid="uid://ct50ivg3y3mii" path="res://Data/SimplifyPath.tres" id="3_e6xtg"]
 [ext_resource type="Resource" uid="uid://c8qrjp8py6obn" path="res://Data/PirateShipData.tres" id="3_fwmpb"]
 [ext_resource type="Script" uid="uid://bmmpjjonaog84" path="res://Code/Ship/EnemyBrain.cs" id="4_diwfk"]
+[ext_resource type="Resource" uid="uid://8hf60kwk604f" path="res://Data/EnemyAI/States/Patrol.tres" id="6_kvqdo"]
+[ext_resource type="Resource" uid="uid://d0omr00ixowl5" path="res://Data/EnemyAI/States/Chase.tres" id="7_e6xtg"]
+[ext_resource type="Script" uid="uid://ho260sd1auvl" path="res://Code/Ship/EnemyAI/AIStateSet.cs" id="8_5obky"]
+[ext_resource type="Resource" uid="uid://vsdy5obma0i6" path="res://Data/EnemyAI/States/IDs/PatrolID.tres" id="9_d6dxf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_34l84"]
 radius = 2.1430664
 height = 7.6814575
 
+[sub_resource type="Resource" id="Resource_tajgw"]
+script = ExtResource("8_5obky")
+States = [ExtResource("6_kvqdo"), ExtResource("7_e6xtg")]
+metadata/_custom_type_script = "uid://ho260sd1auvl"
+
 [node name="SmallPirateShip" unique_id=1141487921 instance=ExtResource("1_34l84")]
 script = ExtResource("2_elvtu")
+_pathPostprocessors = Array[Resource]([ExtResource("3_e6xtg")])
 _shipData = ExtResource("3_fwmpb")
 
 [node name="ship-pirate-small" parent="." index="0" unique_id=1080368293]
@@ -27,3 +38,5 @@ debug_color = Color(0.8276356, 0.0015378738, 0.9516199, 0.41960785)
 
 [node name="Brain" type="Node" parent="." index="2" unique_id=1125487882]
 script = ExtResource("4_diwfk")
+_states = SubResource("Resource_tajgw")
+_initialStateID = ExtResource("9_d6dxf")

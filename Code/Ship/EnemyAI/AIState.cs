@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Godot;
 
 namespace GA.Ships
@@ -41,13 +42,12 @@ namespace GA.Ships
 		/// </summary>
 		/// <param name="ship"></param>
 		/// <param name="deltaTime"></param>
-		public void UpdateState(EnemyShip ship, float deltaTime)
+		public void UpdateState(EnemyShip ship, ProcessMode processMode, float deltaTime)
 		{
-			PerformActions(ship, deltaTime);
-			AIStateID targetStateID = TryTransitioning(ship);
+			PerformActions(ship, processMode, deltaTime);
 		}
 
-		private AIStateID TryTransitioning(EnemyShip ship)
+		public AIStateID TryTransitioning(EnemyShip ship)
 		{
 			foreach (var transition in Transitions)
 			{
@@ -62,11 +62,14 @@ namespace GA.Ships
 			return null;
 		}
 
-		private void PerformActions(EnemyShip ship, float deltaTime)
+		private void PerformActions(EnemyShip ship, ProcessMode processMode, float deltaTime)
 		{
 			foreach (var action in RunActions)
 			{
-				action.Act(ship, deltaTime);
+				if (action.ProcessMode == processMode)
+				{
+					action.Act(ship, deltaTime);
+				}
 			}
 		}
 	}

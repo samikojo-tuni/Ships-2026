@@ -13,7 +13,7 @@ namespace GA.Ships
 		private float _pathfindingTimer = 0;
 
 		// Path returned by the pathfinder to the target.
-		private List<Vector3> _pathfindingPath = null;
+		private List<Vector3> _pathfindingPath = new List<Vector3>();
 		[Export] private PathPostprocessorResource[] _pathPostprocessors = null;
 
 		#endregion Pathfinding

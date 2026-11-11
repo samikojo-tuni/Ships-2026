@@ -26,6 +26,7 @@ namespace GA.Ships
 			if (ship.GlobalPosition.DistanceSquaredTo(ship.CurrentPathfindingTarget)
 				<= _arrivalDistanceSqr)
 			{
+				// TODO: Add also dot product check between initial direction to target and current direction to target.
 				ship.AdvancePathfindingPathTarget();
 			}
 		}
