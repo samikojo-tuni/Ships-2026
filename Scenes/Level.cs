@@ -1,6 +1,8 @@
 using GA.Ships.Pathfinding;
 using Godot;
 using GA.Common;
+using GA.Ships.Navigation;
+using System.Collections.Generic;
 
 namespace GA.Ships
 {
@@ -13,6 +15,12 @@ namespace GA.Ships
 		#endregion Statics
 
 		[Export] private NavigationGrid _grid = null;
+
+		private PathDebugDrawer _pathVisualizer = null;
+
+		private PlayerShip _player = null;
+
+		public PlayerShip Player => _player;
 
 		public Pathfinder Pathfinder
 		{
@@ -38,6 +46,21 @@ namespace GA.Ships
 			}
 
 			Pathfinder = new Pathfinder(_grid);
+
+			_pathVisualizer = this.GetNode<PathDebugDrawer>();
+		}
+
+		public void DrawPath(IList<Vector3> path)
+		{
+			if (_pathVisualizer != null)
+			{
+				_pathVisualizer.DrawPath(path);
+			}
+		}
+
+		public void RegisterPlayer(PlayerShip player)
+		{
+			_player = player;
 		}
 	}
 }

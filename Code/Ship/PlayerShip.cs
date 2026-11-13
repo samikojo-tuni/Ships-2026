@@ -4,6 +4,13 @@ namespace GA.Ships
 {
 	public partial class PlayerShip : ShipBase
 	{
+		public override void _Ready()
+		{
+			base._Ready();
+
+			Level.Current.RegisterPlayer(this);
+		}
+
 		public override void _PhysicsProcess(double delta)
 		{
 			float deltaTime = (float)delta;

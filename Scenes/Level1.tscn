@@ -15,9 +15,7 @@
 [ext_resource type="Script" uid="uid://dfgn7obpkuywd" path="res://Code/Pathfinding/Testing/PathfindingDistance.cs" id="12_rpty4"]
 [ext_resource type="Script" uid="uid://dcd87n363xavl" path="res://Code/FollowCamera.cs" id="12_yji5v"]
 [ext_resource type="Script" uid="uid://ftx3scowqqc5" path="res://Code/Pathfinding/NavigationObject.cs" id="13_06um6"]
-[ext_resource type="Script" uid="uid://dk2xdb5406g73" path="res://Code/Pathfinding/PrototypeSeeker.cs" id="15_ug0sv"]
 [ext_resource type="Script" uid="uid://bxf323gmb80ay" path="res://Code/Pathfinding/PathDebugDrawer.cs" id="16_0wsr5"]
-[ext_resource type="Resource" uid="uid://ct50ivg3y3mii" path="res://Data/SimplifyPath.tres" id="16_jgorv"]
 [ext_resource type="PackedScene" uid="uid://bprh4mkm82u83" path="res://Scenes/Ships/PlayerShip.tscn" id="18_jgorv"]
 [ext_resource type="PackedScene" uid="uid://t28oc6yqfvp2" path="res://Scenes/Ships/EnemyShip.tscn" id="19_q1ws5"]
 [ext_resource type="Script" uid="uid://dsuobah0liq4t" path="res://Code/Ship/PatrolPath/PatrolPath.cs" id="21_ulvkb"]
@@ -601,20 +599,6 @@ script = ExtResource("13_06um6")
 MovementCost = 5
 Priority = 10
 
-[node name="PrototypeSeeker" type="Node3D" parent="." unique_id=638117760 node_paths=PackedStringArray("_targetNode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.318624, 0, -9.516527)
-script = ExtResource("15_ug0sv")
-_algorithm = 3
-_targetNode = NodePath("Target")
-_postProcessors = Array[Resource]([ExtResource("16_jgorv")])
-
-[node name="Target" type="Node3D" parent="PrototypeSeeker" unique_id=1206835674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.94413, 0, -4.886297)
-
-[node name="PathVisualizer" type="Node3D" parent="PrototypeSeeker" unique_id=1928270184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6813755, 0, -12.483473)
-script = ExtResource("16_0wsr5")
-
 [node name="SmallShip" parent="." unique_id=1755950333 instance=ExtResource("18_jgorv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.292449, -0.5441879, 0)
 
@@ -667,3 +651,7 @@ metadata/_custom_type_script = "uid://1vrpqbn60nuo"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8817368, 0, -27.030958)
 script = ExtResource("22_fh0sh")
 metadata/_custom_type_script = "uid://1vrpqbn60nuo"
+
+[node name="PathVisualizer" type="Node3D" parent="." unique_id=1741353486]
+script = ExtResource("16_0wsr5")
+_segmentWidth = 0.5

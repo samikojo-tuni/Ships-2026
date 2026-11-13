@@ -115,7 +115,7 @@ namespace GA.Ships
 				_pathfindingPath.Add(cellPosition);
 			}
 
-			// TODO: Draw path for debugging.
+			Level.Current.DrawPath(_pathfindingPath);
 		}
 
 		public void AdvancePatrolIndex()

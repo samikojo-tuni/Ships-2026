@@ -33,12 +33,18 @@ namespace GA.Ships
 		public override void _Process(double delta)
 		{
 			CurrentState.UpdateState(_owner, GA.Ships.ProcessMode.Frame, (float)delta);
-			AIStateID targetStateID = CurrentState.TryTransitioning(_owner);
-			if (targetStateID != null)
+			foreach (var targetStateID in CurrentState.TryTransitioning(_owner))
 			{
-				if (!ChangeState(targetStateID))
+				if (targetStateID != null)
 				{
-					GD.PushWarning($"Can't transition from {CurrentState.ID} to {targetStateID}");
+					if (ChangeState(targetStateID))
+					{
+						break;
+					}
+					else
+					{
+						GD.PushWarning($"Can't transition from {CurrentState.ID} to {targetStateID}");
+					}
 				}
 			}
 		}

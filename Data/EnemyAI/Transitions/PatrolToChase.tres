@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AITransition" format=3 uid="uid://bu3uscqi175d1"]
+
+[ext_resource type="Script" uid="uid://dnpmv23pscj8t" path="res://Code/Ship/EnemyAI/AITransition.cs" id="1_aufn2"]
+[ext_resource type="Resource" uid="uid://csutd5coxi4d5" path="res://Data/EnemyAI/Conditions/IsPlayerDetectedPatrol.tres" id="1_wfd7c"]
+[ext_resource type="Resource" uid="uid://ex2xu2kxjlml" path="res://Data/EnemyAI/States/IDs/ChaseID.tres" id="2_kroc5"]
+
+[resource]
+script = ExtResource("1_aufn2")
+Condition = ExtResource("1_wfd7c")
+TargetStateID = ExtResource("2_kroc5")
+metadata/_custom_type_script = "uid://dnpmv23pscj8t"
