@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace GA.Ships
@@ -23,7 +24,14 @@ namespace GA.Ships
 			}
 
 			float distanceSqr = ship.GlobalPosition.DistanceSquaredTo(player.GlobalPosition);
-			return distanceSqr <= DetectionRangeSqr;
+			bool decision = distanceSqr <= DetectionRangeSqr;
+
+			if (InvertDecision)
+			{
+				return !decision;
+			}
+
+			return decision;
 		}
 	}
 }

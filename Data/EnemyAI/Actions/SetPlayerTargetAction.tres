@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SetPlayerTargetAction" format=3 uid="uid://civ282cokgblx"]
+
+[ext_resource type="Script" uid="uid://d0ieuwwtaqlhf" path="res://Code/Ship/EnemyAI/Actions/SetPlayerTargetAction.cs" id="1_u4hfa"]
+
+[resource]
+script = ExtResource("1_u4hfa")
+metadata/_custom_type_script = "uid://d0ieuwwtaqlhf"

@@ -3,18 +3,19 @@
 [ext_resource type="Resource" uid="uid://vsdy5obma0i6" path="res://Data/EnemyAI/States/IDs/PatrolID.tres" id="1_5d0wq"]
 [ext_resource type="Script" uid="uid://c8wl0t4x2j4cd" path="res://Code/Ship/EnemyAI/AIState.cs" id="1_f13ka"]
 [ext_resource type="Resource" uid="uid://6bqb0lr4wxxd" path="res://Data/EnemyAI/Actions/FindClosestWaypointAction.tres" id="1_rfq0j"]
+[ext_resource type="Resource" uid="uid://lavuy1kkjfe4" path="res://Data/EnemyAI/Actions/ClearNavigationDataAction.tres" id="2_8yh1c"]
 [ext_resource type="Resource" uid="uid://02wsjgko4cky" path="res://Data/EnemyAI/Actions/PatrolPathAction.tres" id="3_7wjhw"]
 [ext_resource type="Resource" uid="uid://dvsx502pkrgy" path="res://Data/EnemyAI/Actions/UpdatePathfindingPathFOrPatrolAction.tres" id="4_2n16c"]
 [ext_resource type="Resource" uid="uid://xyocogw3f1he" path="res://Data/EnemyAI/Actions/FollowPathfindingPathAction.tres" id="5_3laqp"]
 [ext_resource type="Resource" uid="uid://kg7205tietiw" path="res://Data/EnemyAI/Actions/TurnTowardTargetAction.tres" id="6_8yh1c"]
 [ext_resource type="Resource" uid="uid://4nxdtvqpaaa1" path="res://Data/EnemyAI/Actions/MoveTowardTargetAction.tres" id="7_ea25u"]
 [ext_resource type="Resource" uid="uid://bu3uscqi175d1" path="res://Data/EnemyAI/Transitions/PatrolToChase.tres" id="8_3laqp"]
-[ext_resource type="Resource" uid="uid://shllp8ewnqio" path="res://Data/EnemyAI/Transitions/PatrolToChaseTEST.tres" id="9_8yh1c"]
 
 [resource]
 script = ExtResource("1_f13ka")
 ID = ExtResource("1_5d0wq")
 EnterActions = [ExtResource("1_rfq0j")]
 RunActions = [ExtResource("3_7wjhw"), ExtResource("4_2n16c"), ExtResource("5_3laqp"), ExtResource("6_8yh1c"), ExtResource("7_ea25u")]
-Transitions = [ExtResource("8_3laqp"), ExtResource("9_8yh1c")]
+ExitActions = [ExtResource("2_8yh1c")]
+Transitions = [ExtResource("8_3laqp")]
 metadata/_custom_type_script = "uid://c8wl0t4x2j4cd"

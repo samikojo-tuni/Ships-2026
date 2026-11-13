@@ -23,12 +23,23 @@ namespace GA.Ships
 			}
 
 			// Have we reached the next pathfinding target point?
-			if (ship.GlobalPosition.DistanceSquaredTo(ship.CurrentPathfindingTarget)
-				<= _arrivalDistanceSqr)
+			if (HasArrived(ship) || HasPassed(ship))
 			{
 				// TODO: Add also dot product check between initial direction to target and current direction to target.
 				ship.AdvancePathfindingPathTarget();
 			}
+		}
+
+		private bool HasPassed(EnemyShip ship)
+		{
+			Vector3 currentDirection = ship.CurrentPathfindingTarget - ship.GlobalPosition;
+			return ship.CurrentPathfindingDirection.Dot(currentDirection) <= 0;
+		}
+
+		private bool HasArrived(EnemyShip ship)
+		{
+			return ship.GlobalPosition.DistanceSquaredTo(ship.CurrentPathfindingTarget)
+							<= _arrivalDistanceSqr;
 		}
 	}
 }

@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_d14gn")
+_arrivalDistance = 3.0
 metadata/_custom_type_script = "uid://cw6b2dbxtq4ft"

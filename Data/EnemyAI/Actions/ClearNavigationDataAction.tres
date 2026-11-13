@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ClearNavigationDataAction" format=3 uid="uid://lavuy1kkjfe4"]
+
+[ext_resource type="Script" uid="uid://cedanq1fifgja" path="res://Code/Ship/EnemyAI/Actions/ClearNavigationDataAction.cs" id="1_buaeq"]
+
+[resource]
+script = ExtResource("1_buaeq")
+metadata/_custom_type_script = "uid://cedanq1fifgja"
